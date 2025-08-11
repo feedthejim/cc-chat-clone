@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { ChatListSkeleton } from '@/components/loading'
 import { getChatHistory } from '@/lib/data'
 import { ChatListItem } from '@/components/chat-list-item'
+import { logout } from '@/lib/auth'
 import Link from 'next/link'
 
 async function ChatList() {
@@ -35,7 +36,7 @@ function Sidebar() {
         <Link href="/chat" className="text-xl font-semibold text-slate-700 dark:text-slate-200">
           ChatGPT
         </Link>
-        <form action="/api/auth/logout" method="POST">
+        <form action={logout}>
           <button
             type="submit"
             className="p-3 glass hover:bg-black/10 dark:hover:bg-white/10 rounded-xl transition-all duration-200 text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-100"

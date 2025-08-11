@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { SearchBarSkeleton, LoginButtonSkeleton, SuggestionCardsSkeleton } from '@/components/loading'
+import { login } from '@/lib/auth'
 
 
 async function LoginButton() {
@@ -7,7 +8,7 @@ async function LoginButton() {
   await new Promise(resolve => setTimeout(resolve, 400))
   
   return (
-    <form action="/api/auth/login" method="POST">
+    <form action={login}>
       <button
         type="submit"
         className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors"
